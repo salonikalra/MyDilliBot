@@ -7,13 +7,13 @@ def main():
     botId = ""
     groupFromId = ""
     groupToId = ""
-    urlFrom = "https://api.telegram.org/bot"+botId+"/getUpdates"
+    urlFrom = "https://api.telegram.org/bot"+botId+"/getUpdates?timeout=100"
     urlTo = "https://api.telegram.org/bot"+botId+"/sendMessage?chat_id=-"+groupToId+"&text="
     lastUpdateId = None
     
     while True:
         if lastUpdateId:
-            response = requests.get(urlFrom+"?offset="+str(lastUpdateId))
+            response = requests.get(urlFrom+"&offset="+str(lastUpdateId))
         else:
             response = requests.get(urlFrom)
         # print (response)
