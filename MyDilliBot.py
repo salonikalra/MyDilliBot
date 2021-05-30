@@ -1,6 +1,7 @@
 import requests
 import json
-import time    
+import time
+import urllib  
 
 def main():
 
@@ -30,6 +31,7 @@ def main():
             # print (message)
 
             if "delhi" in message.lower():
+                message = urllib.parse.quote_plus(message)
                 response = requests.post(urlTo+message)
                 # print (response)
 
